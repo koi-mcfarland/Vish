@@ -1,6 +1,13 @@
 # Easier copying
 alias copy='xclip -selection clipboard'
 
+# Nvim
+alias v='nvim'
+
+# Git
+alias g='git'
+alias lg='lazygit'
+
 # Better cat
 alias cat='batcat'
 
@@ -10,11 +17,11 @@ alias lsa='eza -a --icons'
 alias ll='eza -lh --git --icons'
 alias lla='eza -lha --git --icons'
 lt() {
-  local lvl="${1:-2}"
+  local lvl="${1:-1}"
   eza --tree --level="$lvl"
 }
 lta() {
-  local lvl="${1:-2}"
+  local lvl="${1:-1}"
   eza -a --tree --level="$lvl"
 }
 
@@ -24,6 +31,8 @@ alias cdi='zi'
 alias ..='z ..'
 alias ...='z ../..'
 alias ....='z ../../..'
+alias ~='cd ~'
+alias /='cd /'
 
 # Better tmux
 alias ta='tmux attach || tmux new'
@@ -34,7 +43,7 @@ alias td='tmux detach'
 alias tr='tmux source-file ~/.tmux.conf'
 
 # Better yazi
-function y() {
+y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	command yazi "$@" --cwd-file="$tmp"
 	IFS= read -r -d '' cwd < "$tmp"

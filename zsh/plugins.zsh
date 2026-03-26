@@ -16,4 +16,20 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
+zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
+
+zinit ice wait lucid
+zinit light MichaelAquilina/zsh-you-should-use
+
+zinit ice wait lucid atload'
+  bindkey "$terminfo[kcuu1]" history-substring-search-up
+  bindkey "$terminfo[kcud1]" history-substring-search-down
+  bindkey -M vicmd "k" history-substring-search-up
+  bindkey -M vicmd "j" history-substring-search-down
+'
+
+zinit light zsh-users/zsh-history-substring-search
+
+eval "$(starship init zsh)"
+
 autoload -U compinit && compinit
