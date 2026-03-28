@@ -30,6 +30,6 @@ zinit ice wait lucid atload'
 
 zinit light zsh-users/zsh-history-substring-search
 
-eval "$(starship init zsh)"
-
 autoload -U compinit && compinit
+
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/oh-my-posh.yaml)"

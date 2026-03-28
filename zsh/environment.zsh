@@ -1,1 +1,1 @@
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+PATH=$PATH:/home/koimcf/.local/bin
