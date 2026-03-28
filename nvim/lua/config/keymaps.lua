@@ -123,6 +123,12 @@ map("ixns", "<C-a>", function()
 	vim.cmd("normal! gg0vG$")
 end, "#Select All")
 
+map("n", "M", "m", "#Set Mark")
+map("n", "m", "q", "#Start Macro")
+map("n", "q", "<cmd>bd<cr><esc>", "#Close Buffer")
+
 -- better indenting
-map("x", ",", "<gv", "#Decrease Indent")
-map("x", ".", ">gv", "#Increase Indent")
+map("x", "<", "<gv", "#decrease indent")
+map("x", ">", ">gv", "#Increase Indent")
+map("n", "<", "<<", "#decrease indent")
+map("n", ">", ">>", "#Increase Indent")
