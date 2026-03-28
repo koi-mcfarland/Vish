@@ -2,6 +2,8 @@
 alias copy='xclip -selection clipboard'
 
 # Nvim
+alias vim="nvim"
+alias vi="nvim"
 alias v='nvim'
 
 # Git
