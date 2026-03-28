@@ -16,7 +16,24 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+zvm_after_init() {
+  zvm_bindkey vicmd 'p' zvm_paste_clipboard_after
+  zvm_bindkey vicmd 'P' zvm_paste_clipboard_before
+
+  zvm_bindkey visual 'p' zvm_paste_clipboard_after
+  zvm_bindkey visual 'P' zvm_paste_clipboard_before
+}
+zinit light jeffreytse/zsh-vi-mode
+
+# Leader key setup here
+typeset -A zvm_leader_map
+zvm_leader_map[e]='y'
+zvm_leader_map[g]='lazygit'
+
+zvm_bindkey vicmd ' ' zvm-leader
+zvm-leader() { read -k key; local cmd="${zvm_leader_map[$key]}"; [[ -n $cmd ]] && eval "$cmd"; }
+zle -N zvm-leader
 
 zinit ice wait lucid
 zinit light MichaelAquilina/zsh-you-should-use
